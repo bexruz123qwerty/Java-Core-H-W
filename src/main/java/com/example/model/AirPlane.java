@@ -1,20 +1,24 @@
 package com.example.model;
 
 import java.io.*;
-import java.util.Map;
-import java.util.TreeMap;
+import java.time.*;
+import java.util.*;
 
 public class AirPlane {
 
     private static final String BOOKINGS = "Bookings.txt";
+    private static final long BOOKING_VALIDITY_MINUTES = 24; // 24 minutes
 
     private final Map<String, Seat> seats = new TreeMap<>();
     private final String destination;
+    private final LocalDateTime departureDateTime;
 
-    public AirPlane(String destination) {
+    public AirPlane(String destination, LocalDateTime departureDateTime) {
         this.destination = destination;
-        loadBookings();
+        this.departureDateTime = departureDateTime;
+        LocalDateTime createdAt = LocalDateTime.now();
         initSeats();
+        loadBookings();
     }
 
     private void initSeats() {
@@ -28,28 +32,32 @@ public class AirPlane {
     }
 
     public void showAllSeats() {
+        clearExpiredBookings();
         for (Seat s : seats.values()) {
             System.out.println(s);
         }
     }
 
+    public Seat getSeat(String id) {
+        return seats.get(id);
+    }
+
     public void bookSeat(String id, Passenger passenger) {
         Seat seat = seats.get(id);
         if (seat == null) {
-            System.out.println(" Seat " + id + " does not exist!");
+            System.out.println("Seat " + id + " does not exist!");
             return;
         }
 
         if (seat.isBooked()) {
-            System.out.println(" Seat " + id + " is already booked by another passenger!");
+            System.out.println("Seat " + id + " is already booked!");
             return;
         }
 
         seat.book(passenger);
         saveBookings();
-        System.out.println(" You booked seat: " + seat.getId());
+        System.out.println("You booked seat: " + seat.getId());
     }
-
 
     public void cancelBook(String id) {
         Seat seat = seats.get(id);
@@ -57,7 +65,7 @@ public class AirPlane {
             System.out.println("Seat " + id + " does not exist!");
             return;
         }
-        if (!seat.isBooked()) {
+        if (seat.getStatus() == Seat.Status.FREE) {
             System.out.println("Seat is already free!");
             return;
         }
@@ -66,21 +74,32 @@ public class AirPlane {
         System.out.println("Booking canceled for seat " + id);
     }
 
-
-    public Seat getSeat(String id) {
-        return seats.get(id);
+    private void clearExpiredBookings() {
+        LocalDateTime now = LocalDateTime.now();
+        for (Seat seat : seats.values()) {
+            if (seat.getStatus() == Seat.Status.BOOKED &&
+                    seat.getBookingTime() != null &&
+                    Duration.between(seat.getBookingTime(), now).toMinutes() > BOOKING_VALIDITY_MINUTES) {
+                seat.cancel();
+                System.out.println("Booking expired for seat: " + seat.getId());
+            }
+        }
+        saveBookings();
     }
 
     private void saveBookings() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(BOOKINGS))) {
             for (Seat seat : seats.values()) {
-                if (seat.isBooked()) {
+                if (seat.getStatus() != Seat.Status.FREE) {
                     Passenger p = seat.getPassenger();
                     writer.write(seat.getId() + ";" +
                             p.getFirstName() + ";" +
                             p.getLastName() + ";" +
                             seat.getSeatClass() + ";" +
-                            destination);
+                            destination + ";" +
+                            departureDateTime + ";" +
+                            seat.getStatus() + ";" +
+                            (seat.getBookingTime() != null ? seat.getBookingTime() : ""));
                     writer.newLine();
                 }
             }
@@ -97,21 +116,27 @@ public class AirPlane {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(";");
-                if (parts.length >= 5) {
+                if (parts.length >= 8) {
                     String seatId = parts[0];
                     String firstName = parts[1];
                     String lastName = parts[2];
                     String dest = parts[4];
-                    if (dest.equals(destination)) {
+                    LocalDateTime flightDate = LocalDateTime.parse(parts[5]);
+                    Seat.Status status = Seat.Status.valueOf(parts[6]);
+                    LocalDateTime bookingTime = parts[7].isEmpty() ? null : LocalDateTime.parse(parts[7]);
+
+                    if (dest.equals(destination) && flightDate.equals(departureDateTime)) {
                         Seat seat = seats.get(seatId);
                         if (seat != null) {
                             seat.book(new Passenger(firstName, lastName));
+                            seat.setStatus(status);
+                            seat.setBookingTime(bookingTime);
                         }
                     }
                 }
             }
         } catch (IOException e) {
-            System.err.println("Ошибка при загрузке брони: " + e.getMessage());
+            System.err.println("Error loading bookings: " + e.getMessage());
         }
     }
 }

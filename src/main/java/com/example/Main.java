@@ -4,6 +4,7 @@ import com.example.model.AirPlane;
 import com.example.model.Passenger;
 import com.example.model.Seat;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
@@ -14,7 +15,7 @@ public class Main {
         System.out.print("Enter flight destination: ");
         String destination = sc.nextLine();
 
-        AirPlane plane = new AirPlane(destination);
+        AirPlane plane = new AirPlane(destination, LocalDateTime.now().plusHours(2));
 
         // ✅ Main menu
         while (true) {
