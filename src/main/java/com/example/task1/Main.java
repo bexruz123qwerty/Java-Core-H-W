@@ -1,4 +1,4 @@
-package com.example;
+package com.example.task1;
 
 import com.example.task1.model.*;
 import com.example.task1.service.CourseService;
