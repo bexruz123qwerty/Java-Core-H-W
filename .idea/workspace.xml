@@ -4,21 +4,110 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe00c31c-4668-46a3-9e33-96aabd213634" name="Changes" comment="lesson 3 part 1 is completed" />
+    <list default="true" id="fe00c31c-4668-46a3-9e33-96aabd213634" name="Changes" comment="lesson 3 part 1 is completed">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/lesson3/part1/BankAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/lesson3/part1/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/lesson3/part1/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/lesson3/part1/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/lesson3/part1/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/lesson3/part2/BankSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/lesson3/part2/OnlineStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/lesson3/streetFighter/StreetFighter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="JavaCore" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;bexruz123qwerty&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/bexruz123qwerty/Java-Core-H-W.git&quot;,
+    &quot;accountId&quot;: &quot;a23e6d44-1186-4548-abc4-d9bcec8da601&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="33YWykaXNNFqaguSNG8P2WLcpUh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.Java-Core-H-W [:com.example.lesson3.part1.Car.main()].executor": "Run",
+    "Gradle.Java-Core-H-W [:com.example.lesson3.streetFighter.StreetFighter.main()].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#2 on lesson3",
+    "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.com.example.Main">
+  <component name="RunManager" selected="Application.StreetFighter">
+    <configuration name="Car" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.lesson3.part1.Car" />
+      <module name="JavaCore.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.lesson3.part2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="uzum.lesson2.Main" />
       <module name="SpringBootPDP.main" />
@@ -45,25 +134,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.example.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.Main" />
+    <configuration name="StreetFighter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.lesson3.streetFighter.StreetFighter" />
       <module name="JavaCore.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="com.example.lesson2.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.lesson2.Main" />
-      <module name="JavaCore.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.lesson2.*" />
+          <option name="PATTERN" value="com.example.lesson3.streetFighter.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,7 +152,7 @@
       <module name="JavaCore.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.lesson3.part1.*" />
+          <option name="PATTERN" value="com.example.lesson3.part2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -86,15 +162,35 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.com.example.Main" />
+        <item itemvalue="Application.StreetFighter" />
+        <item itemvalue="Application.Car" />
         <item itemvalue="Application.Quest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.com.example.lesson3.part1.Main" />
-        <item itemvalue="Application.com.example.lesson2.Main" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-IU-252.26199.169" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe00c31c-4668-46a3-9e33-96aabd213634" name="Changes" comment="lesson 3 part 1 is completed" />
+      <created>1759494742762</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1759494742762</updated>
+      <workItem from="1759494743965" duration="1691000" />
+      <workItem from="1759682239929" duration="1294000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
